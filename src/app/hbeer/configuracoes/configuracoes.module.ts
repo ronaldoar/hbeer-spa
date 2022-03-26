@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListarComponent } from './listar/listar.component';
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { ParametrosComponent } from './parametros/parametros.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HeaderModule } from 'src/app/header/header.module';
 
 const router: Routes = [
-  { path: '', component: ListarComponent }
+  { path: '', component: ParametrosComponent }
 ];
 
 @NgModule({
   declarations: [
-    ListarComponent,
-    CadastrarComponent
+    ParametrosComponent
   ],
   imports: [
     CommonModule,
@@ -20,4 +18,4 @@ const router: Routes = [
     HeaderModule
   ]
 })
-export class EstoqueModule { }
+export class ConfiguracoesModule { }

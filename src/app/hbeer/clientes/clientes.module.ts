@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { Routes, RouterModule } from '@angular/router';
+import { HeaderModule } from 'src/app/header/header.module';
 
-
+const router: Routes = [
+  { path: '', component: ListarComponent }
+];
 
 @NgModule({
   declarations: [
@@ -11,7 +15,9 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
     CadastrarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(router),
+    HeaderModule
   ]
 })
 export class ClientesModule { }
