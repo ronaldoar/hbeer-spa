@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CurrentUserService } from '../core/current-user.service';
+import { Usuario } from '../core/usuario-model';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  user$: Observable<Usuario> | undefined;
   menuApp: string[] = [];
 
-  constructor() { }
+  constructor(private user: CurrentUserService) {
+    this.user$ = this.user.getUser();
+  }
 
   ngOnInit(): void {
     this.menuApp = this.buildAppMenus();

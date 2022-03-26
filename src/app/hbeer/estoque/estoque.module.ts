@@ -4,6 +4,8 @@ import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HeaderModule } from 'src/app/header/header.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { EstoqueService } from './services/estoque.service';
 
 const router: Routes = [
   { path: '', component: ListarComponent }
@@ -17,7 +19,11 @@ const router: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(router),
+    CoreModule,
     HeaderModule
+  ],
+  providers: [
+    EstoqueService
   ]
 })
 export class EstoqueModule { }
