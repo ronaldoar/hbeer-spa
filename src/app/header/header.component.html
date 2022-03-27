@@ -15,6 +15,10 @@
   </div>
 </header>
 
+<div class="user-name" *ngIf="(user$ | async) as user">
+  Nome: {{user.name}}, Username: {{user.preferredUsername}}
+</div>
+
 <ul class="nav justify-content-end">
   <li class="nav-item">
     <a class="nav-link" href="#">Notificações</a>
@@ -23,7 +27,26 @@
     <a class="nav-link" href="#">Configurações</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Perfil</a>
+    <div class="dropdown">
+      <a class="nav-link" href="#">Perfil</a>
+      <div class="dropdown-content" *ngIf="(user$ | async) as user">
+        <p class="info-perfil">E-mail: {{user.email}}</p>
+        <p class="info-perfil">Acesso: {{user.roles}}</p>
+      </div>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Logout</a>
   </li>
 </ul>
 
+<!-- <div *ngIf="(user$ | async) as user">
+  <li class="nav-item">
+    <ul>
+      <li><a>Nome: {{user.name}}</a></li>
+      <li><a>Username: {{user.preferredUsername}}</a></li>
+      <li><a>Acesso: {{user.roles}}</a></li>
+      <li><a>E-mail: {{user.email}}</a></li>
+    </ul>
+  </li>
+</div> -->
